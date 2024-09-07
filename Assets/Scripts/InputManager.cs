@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
     // seconds
     public static float timeSincePressed = 9f;
     public static float timingThreshhold = 0.2f;
-    public static bool trackTime = false;
+    public static bool trackTime = true;
 
     void Update()
     {
@@ -13,7 +13,6 @@ public class InputManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             timeSincePressed = 0f;
-            trackTime = true;
         }
 
         if (!trackTime) 
@@ -23,11 +22,5 @@ public class InputManager : MonoBehaviour
         }
 
         timeSincePressed += Time.deltaTime;
-
-        if (timeSincePressed >= timingThreshhold)
-        {
-            Debug.Log("MISS");
-            trackTime = false;
-        }
     }
 }
