@@ -35,6 +35,12 @@ public class LoopContainer : Tickable
                 Debug.Log("MISS");
             }
         }
+        // case for inputing on a pass line
+        else if (InputManager.timeSincePressed <= InputManager.timingThreshhold)
+        {
+            Debug.Log("MISS");
+            resultThisTick = true;
+        }
     }
 
     override public void OnTick()
